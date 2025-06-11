@@ -13,18 +13,15 @@ const LoginPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { user, login } = useAuth();
 
-  if (user) {
-    return <Navigate to="/" replace />;
-  }
+  if (user) return <Navigate to="/" replace />;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       await login(email, password);
       toast.success('Welcome back!');
-    } catch (error) {
+    } catch {
       toast.error('Invalid credentials. Please try again.');
     } finally {
       setLoading(false);
@@ -43,7 +40,6 @@ const LoginPage: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
           <p className="text-gray-600">Sign in to your StudyAbroad CRM account</p>
         </div>
-
         <Card>
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
@@ -55,7 +51,6 @@ const LoginPage: React.FC = () => {
               placeholder="Enter your email"
               required
             />
-
             <Input
               label="Password"
               type="password"
@@ -65,22 +60,13 @@ const LoginPage: React.FC = () => {
               placeholder="Enter your password"
               required
             />
-
-            <Button
-              type="submit"
-              className="w-full"
-              loading={loading}
-              disabled={!email || !password}
-            >
+            <Button type="submit" className="w-full" loading={loading} disabled={!email || !password}>
               Sign In
             </Button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Demo credentials: any email and password
-            </p>
-          </div>
+          <p className="mt-6 text-center text-sm text-gray-600">
+            Demo credentials: any email and password
+          </p>
         </Card>
       </div>
     </div>
