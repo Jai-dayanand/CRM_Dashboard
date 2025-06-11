@@ -1,18 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { 
-  Home, 
-  Users, 
-  FileText, 
-  Target, 
-  MessageSquare, 
+import { NavLink, useNavigate } from 'react-router-dom';
+import {
+  Home,
+  Users,
+  FileText,
+  Target,
+  MessageSquare,
   Settings,
   BarChart3,
   Calendar,
-  Upload
+  Upload,
+  LogOut,
 } from 'lucide-react';
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+
   const navigation = [
     { name: 'Dashboard', href: '/', icon: Home },
     { name: 'Students', href: '/students', icon: Users },
@@ -29,6 +32,7 @@ const Sidebar: React.FC = () => {
     <div className="hidden md:flex md:flex-shrink-0">
       <div className="flex flex-col w-64">
         <div className="flex flex-col flex-grow bg-gray-50 pt-5 pb-4 overflow-y-auto border-r border-gray-200">
+          {/* Logo/Header */}
           <div className="flex items-center flex-shrink-0 px-4 mb-8">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -37,6 +41,8 @@ const Sidebar: React.FC = () => {
               <span className="text-lg font-semibold text-gray-900">StudyAbroad</span>
             </div>
           </div>
+
+          {/* Navigation Links */}
           <nav className="mt-5 flex-1 px-2 space-y-1">
             {navigation.map((item) => (
               <NavLink
@@ -58,6 +64,17 @@ const Sidebar: React.FC = () => {
               </NavLink>
             ))}
           </nav>
+
+          {/* Logout Section */}
+          <div className="px-4 mt-auto border-t pt-4">
+            <button
+              onClick={() => navigate('/login')}
+              className="group flex items-center px-2 py-2 text-sm font-medium text-red-600 hover:text-red-800 transition-colors duration-200"
+            >
+              <LogOut className="mr-3 h-5 w-5" />
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
