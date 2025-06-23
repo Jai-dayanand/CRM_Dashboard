@@ -10,6 +10,7 @@ import {
   BarChart3,
   Calendar,
   Upload,
+  UserCheck,
   LogOut,
 } from 'lucide-react';
 
@@ -25,6 +26,7 @@ const Sidebar: React.FC = () => {
     { name: 'Analytics', href: '/analytics', icon: BarChart3 },
     { name: 'Feedback', href: '/feedback', icon: MessageSquare },
     { name: 'Upload', href: '/upload', icon: Upload },
+    { name: 'Team', href: '/team', icon: UserCheck },
     { name: 'Settings', href: '/settings', icon: Settings },
   ];
 

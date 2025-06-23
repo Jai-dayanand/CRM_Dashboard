@@ -15,6 +15,7 @@ import ApplicationsPage from './pages/ApplicationsPage';
 import CalendarPage from './pages/CalendarPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import UploadsPage from './pages/UploadsPage';
+import TeamPage from './pages/TeamPage';
 import SettingsPage from './pages/SettingsPage';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -52,6 +53,7 @@ const AppRoutes: React.FC = () => {
         <Route path="calendar" element={<CalendarPage />} />
         <Route path="analytics" element={<AnalyticsPage />} />
         <Route path="upload" element={<UploadsPage />} />
+        <Route path="team" element={<TeamPage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
     </Routes>
