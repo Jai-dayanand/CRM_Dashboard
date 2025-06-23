@@ -49,7 +49,7 @@ const TeamPage: React.FC = () => {
 
   // Google Sheets configuration
   const SPREADSHEET_ID = '1a9u9iMaBkKdR6BdypROgqtClpUnwuNHSbk7qXMMDVCw';
-  const API_KEY = 'YOUR_GOOGLE_SHEETS_API_KEY'; // You'll need to set this
+  const API_KEY = 'AIzaSyC_zg3PbQOGrTqm2ipWLhzeYxf_yL5szWw'; // You'll need to set this
 
   useEffect(() => {
     fetchTeamData();
